@@ -1,0 +1,72 @@
+
+.wrapper {
+    height: 280px;
+    width: 100%; 
+    box-shadow: 0px 1px 5px rgb(0 0 0 / 0.8); 
+    display: flex;
+    justify-content: center;
+    background-color: #490cd7;
+    
+}
+
+.inner {
+    height: 100%;
+    width: 1240px; 
+    color: #f7f1f1;
+    background-color: #490cd7;
+}
+
+.chantrang{
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vechungtoi,
+.thongtin,
+.ketnoi {
+  width: 30%;
+}
+
+.vechungtoi h3,
+.thongtin h3,
+.ketnoi h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.vechungtoi p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.thongtin ul,
+.ketnoi ul {
+  list-style: none;
+  padding: 0;
+}
+
+.thongtin li,
+.ketnoi li {
+  margin-bottom: 8px;
+}
+
+.thongtin a,
+.ketnoi a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.thongtin a:hover,
+.ketnoi a:hover {
+  color: #a1c6f1;
+}
+
+.banquyen {
+    padding-top: 20px;
+  font-size: 14px;
+  border-top: 1px solid #555;
+  padding-top: 10px;
+}

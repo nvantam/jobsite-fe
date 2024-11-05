@@ -1,0 +1,110 @@
+.wrapper {
+  position: fixed;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #490cd7;
+  z-index: 1000;
+}
+
+.inner {
+  height: 100%;
+  width: 1240px;
+  color: #f7f1f1;
+  background-color: #490cd7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.container a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 5px;
+}
+
+.container a:hover {
+  background-color: #5097c7;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.account {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.account span {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+}
+
+.account div {
+  position: absolute;
+  top: 128%;
+  right: 10;
+  background-color: #4b2ba6;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: none;
+  z-index: 100;
+}
+
+.account div ul {
+  list-style: none;
+  width: 120px;
+  padding: 0;
+  margin: 0;
+}
+
+.account div ul a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 5px;
+}
+
+.account div ul li {
+  padding: 15px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.account div ul li:hover {
+  background-color: #8dbcf1;
+  color: #4b2ba6;
+}
