@@ -15,7 +15,6 @@ function ChiTietViecLam() {
           <h2>Công việc</h2>
           <div className={cx("thongtinluong")}>
             <div>Mức Lương: 10-15 triệu</div>
-            <div>Số Lượng Tuyển: 5</div>
             <div>Ngày Đăng Tin: 02/11/2024</div>
             <div>Hạn nộp hồ sơ: 02/12/2024</div>
             <div>Địa chỉ: Tp Hcm</div>
