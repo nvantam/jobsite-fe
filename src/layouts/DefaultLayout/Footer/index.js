@@ -38,7 +38,7 @@ function Footer() {
             <h3>Kết Nối Với Chúng Tôi</h3>
             <ul>
               <li>
-                <a href="#" target="_blank">Facebook</a>
+                <Link to="/" target="_blank">Facebook</Link>
               </li>
               <li>
                 <Link>Twitter</Link>

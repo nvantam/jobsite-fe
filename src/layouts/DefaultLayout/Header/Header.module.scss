@@ -11,7 +11,7 @@
 .inner {
   height: 100%;
   width: 1240px;
-  color: #f7f1f1;
+  color: white;
   background-color: #490cd7;
   display: flex;
   align-items: center;
@@ -49,11 +49,35 @@
   margin-right: 10px;
 }
 
+.khoitaikhoan{
+  display: flex;
+}
+
+.khoitaikhoan a{
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 5px;
+  gap: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.khoitaikhoan a:hover {
+  background-color: #5097c7;
+}
+
+.text1{
+  font-size: 12px;
+}
+
 .account {
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
+  
 }
 
 .avatar {
@@ -72,7 +96,7 @@
 
 .account div {
   position: absolute;
-  top: 128%;
+  top: 102%;
   right: 10;
   background-color: #4b2ba6;
   border-radius: 5px;

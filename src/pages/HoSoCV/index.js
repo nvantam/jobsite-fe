@@ -25,6 +25,9 @@ function HoSoCV () {
             <li className={cx({ [styles.active]: activeTab === "account" })} onClick={() => handleTabClick("account")}>
               Thông tin tài khoản
             </li>
+            <li className={cx({ [styles.active]: activeTab === "congviec" })} onClick={() => handleTabClick("congviec")}>
+              Công việc đã nộp CV
+            </li>
             <li className={cx({ [styles.active]: activeTab === "changePassword" })} onClick={() => handleTabClick("changePassword")}>
               Đổi mật khẩu
             </li>
