@@ -1,12 +1,12 @@
 import classNames from "classnames/bind";
-import styles from "./Header.module.scss";
+import styles from "./Headerdoanhnghiep.module.scss";
 import logo from "~/assets/logo.jpg";
 import { Link } from "react-router-dom";
 // import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
-function Header() {
+function HeaderDoanhNghiep() {
   // const [thaXuong, datThaXuong] = useState(false);
 
   // const thaXuongTaiKhoan = () => {
@@ -14,19 +14,19 @@ function Header() {
   // };
 
   return (
-    <header className={cx("wrapper")}>
-      <div className={cx("inner")}>
+    <header className={cx("wrapperdoanhnghiep")}>
+      <div className={cx("innerdoanhnghiep")}>
         <div>
-          <Link to="/">
-            <img src={logo} className={cx("logo")} alt="logo" />
+          <Link to="/trangchudoanhnghiep">
+            <img src={logo} className={cx("logodoanhnghiep")} alt="logo" />
           </Link>
         </div>
-        <div className={cx("container")}>
-          <Link to="/">Việc Làm</Link>
-          <Link to="/hosocv">Hồ Sơ & CV</Link>
-          <Link to="/thongbao">Thông Báo</Link>
+        <div className={cx("containerdoanhnghiep")}>
+          <Link to="/trangchudoanhnghiep">Dành Cho Doanh Nghiệp</Link>
+          <Link to="/dangtintuyendung">Đăng Tin Tuyển Dụng</Link>
+          <Link to="/thongbaodoanhnghiep">Thông Báo</Link>
         </div>
-        <div className={cx("khoitaikhoan")}>
+        <div className={cx("khoitaikhoandoanhnghiep")}>
           {/* <div className={cx("account")} style={{ marginRight: "25px" }}>
             <span onClick={thaXuongTaiKhoan}>
               <img src={logo} className={cx("avatar")} alt="avatar" />
@@ -38,8 +38,8 @@ function Header() {
               </ul>
             </div>
           </div> */}
-          <Link to="/dangnhaptktimviec">
-            <div className={cx("text1")}>Người tìm việc</div> Đăng kí/Đăng nhập
+          <Link to="/dangnhaptkdoanhnghiep">
+            <div className={cx("text1")}>Nhà Tuyển Dụng</div> Đăng kí/Đăng nhập
           </Link>
           <hr
             style={{
@@ -48,8 +48,8 @@ function Header() {
               margin: "0 10px",
             }}
           />
-          <Link to="/trangchudoanhnghiep">
-            <div className={cx("text1")}>Dành Cho</div> Nhà Tuyển Dụng
+          <Link to="/">
+            <div className={cx("text1")}>Dành Cho</div> Người Tìm Việc
           </Link>
         </div>
       </div>
@@ -57,4 +57,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderDoanhNghiep;

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { publicRoutes, privateRoutes } from "./routes";
+import { publicRoutes, RoutersDoanhNghiep } from "./routes";
 import { Fragment } from "react";
 import DefaultLayout from "./layouts/DefaultLayout";
+import LayoutDoanhNghiep from "./layouts/LayoutDoanhNghiep";
 function App() {
   return (
     <Router>
@@ -23,9 +24,20 @@ function App() {
             );
           })}
 
-          {privateRoutes.map((route, index) => {
-            const Pages = route.component;
-            return <Route key={index} path={route.path} element={<Pages />} />;
+          {RoutersDoanhNghiep.map((route, index) => {
+            const Layoutdoanhnghiep = route.layout === null ? Fragment : LayoutDoanhNghiep;
+            const PageDoanhNghiep = route.component;
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  <Layoutdoanhnghiep>
+                    <PageDoanhNghiep />
+                  </Layoutdoanhnghiep>
+                }
+              />
+            );
           })}
         </Routes>
       </div>

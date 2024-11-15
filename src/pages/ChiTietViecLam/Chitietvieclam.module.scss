@@ -54,7 +54,7 @@
 
 .thongtinluong div {
   flex: 1;
-  min-width: 150px; /* Đảm bảo dàn hàng đều và không bị ép quá nhỏ */
+  min-width: 150px;
 }
 
 .nutnophoso {
@@ -76,7 +76,6 @@
   background-color: #135bb5;
 }
 
-/* Khối thông tin chi tiết */
 .thongtinchitiet {
   background-color: #fff;
   padding: 15px;
@@ -110,7 +109,6 @@
   color: #333;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .thongtinchung {
     flex-direction: column;

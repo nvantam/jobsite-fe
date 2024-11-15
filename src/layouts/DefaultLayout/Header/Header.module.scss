@@ -1,3 +1,4 @@
+/* Base styling */
 .wrapper {
   position: fixed;
   height: 65px;
@@ -9,13 +10,13 @@
 }
 
 .inner {
-  height: 100%;
   width: 1240px;
-  color: white;
-  background-color: #490cd7;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: white;
+  background-color: #490cd7;
 }
 
 .logo {
@@ -34,14 +35,15 @@
   color: white;
   text-decoration: none;
   padding: 8px 12px;
-  transition: color 0.3s, background-color 0.3s;
   border-radius: 5px;
+  transition: color 0.3s, background-color 0.3s;
 }
 
 .container a:hover {
   background-color: #5097c7;
 }
 
+/* Account section styling */
 .avatar {
   width: 40px;
   height: 40px;
@@ -49,42 +51,33 @@
   margin-right: 10px;
 }
 
-.khoitaikhoan{
+.khoitaikhoan {
   display: flex;
+  gap: 20px;
 }
 
-.khoitaikhoan a{
+.khoitaikhoan a {
   color: white;
   text-decoration: none;
   padding: 8px 12px;
-  transition: color 0.3s, background-color 0.3s;
-  border-radius: 5px;
-  gap: 20px;
   font-size: 16px;
   font-weight: bold;
+  border-radius: 5px;
+  transition: color 0.3s, background-color 0.3s;
 }
-
+.text1 {
+  font-size: 12px;
+}
 .khoitaikhoan a:hover {
   background-color: #5097c7;
 }
 
-.text1{
-  font-size: 12px;
-}
-
+/* Dropdown menu */
 .account {
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
-  
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
 }
 
 .account span {
@@ -97,27 +90,22 @@
 .account div {
   position: absolute;
   top: 102%;
-  right: 10;
+  right: 0;
   background-color: #4b2ba6;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
   display: none;
   z-index: 100;
 }
 
-.account div ul {
-  list-style: none;
-  width: 120px;
-  padding: 0;
-  margin: 0;
+.account:hover div {
+  display: block;
 }
 
-.account div ul a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s, background-color 0.3s;
-  border-radius: 5px;
+.account div ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .account div ul li {
@@ -131,4 +119,83 @@
 .account div ul li:hover {
   background-color: #8dbcf1;
   color: #4b2ba6;
+}
+
+/* Responsive styling for screens below 768px */
+@media (max-width: 768px) {
+  .inner {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .container {
+    gap: 15px;
+    font-size: 14px;
+  }
+
+  .khoitaikhoan a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .logo {
+    width: 40px;
+  }
+
+  .account div ul li {
+    font-size: 14px;
+  }
+}
+
+/* Responsive styling for screens below 600px */
+@media (max-width: 600px) {
+  .inner {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .container,
+  .khoitaikhoan {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .container a,
+  .khoitaikhoan a {
+    font-size: 14px;
+  }
+
+  .account div ul li {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Responsive styling for screens below 480px */
+@media (max-width: 480px) {
+  .inner {
+    padding: 0 10px;
+  }
+
+  .logo {
+    width: 35px;
+  }
+
+  .container a,
+  .khoitaikhoan a {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .account div ul li {
+    padding: 8px;
+  }
 }

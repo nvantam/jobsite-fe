@@ -28,23 +28,23 @@ function DangKiTKTimViec() {
       [name]: value,
     });
   };
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     if (file.type.startsWith("image/")) {
-  //       const reader = new FileReader();
-  //       reader.onloadend = () => {
-  //         setFormData({
-  //           ...formData,
-  //           avatar: reader.result,
-  //         });
-  //       };
-  //       reader.readAsDataURL(file);
-  //     } else {
-  //       alert("Vui lòng chọn file ảnh.");
-  //     }
-  //   }
-  // };
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setFormData({
+            ...formData,
+            avatar: reader.result,
+          });
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert("Vui lòng chọn file ảnh.");
+      }
+    }
+  };
   const handleSendVerifyCode = async () => {
     if (!formData.email) {
       setErrorMessage("Vui lòng nhập email để nhận mã xác thực.");
@@ -78,10 +78,8 @@ function DangKiTKTimViec() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Kiểm tra nếu số điện thoại là một chuỗi số hợp lệ và không rỗng
     if (formData.hoVaTen && formData.email && formData.matKhau && formData.maXacThuc && formData.sdt) {
-      // Chuyển số điện thoại về dạng int
-      const phoneNumber = parseInt(formData.sdt, 10);  // parse với cơ số 10 cho số thập phân
+      const phoneNumber = parseInt(formData.sdt, 10); 
       if (isNaN(phoneNumber)) {
         setErrorMessage("Số điện thoại không hợp lệ.");
         return;
@@ -130,12 +128,12 @@ function DangKiTKTimViec() {
   };
 
   return (
-    <div className={cx("form-container")}>
-      <div className={cx("formdangki")}>
-        <h2>Đăng ký tài khoản dành cho người tìm việc</h2>
-        <form onSubmit={handleSubmit}>
-          <div className={cx("form-group")}>
-            <label>Địa chỉ email</label>
+    <div className={cx("formcontainerdangkitktimviec")}>
+      <div className={cx("dangkitktimviec")}>
+        <h2 className={cx("tieudedangkitktimviec")} >Đăng ký tài khoản dành cho người tìm việc</h2>
+        <form className={cx("formdangkitktimviec")} onSubmit={handleSubmit}>
+          <div className={cx("form-groupdangkitktimviec")}>
+            <label className={cx("labelemaildangkitktimviec")}>Địa chỉ email</label>
             <input
               type="email"
               name="email"
@@ -147,17 +145,17 @@ function DangKiTKTimViec() {
             <button
               type="button"
               onClick={handleSendVerifyCode}
-              className={cx("verify-button")}
+              className={cx("btnverifydangkitktimviec")}
             >
               Nhận mã xác thực
             </button>
           </div>
           {verifyMessage && (
-            <p className={cx("verify-message")}>{verifyMessage}</p>
+            <p className={cx("verifymessagedangkitktimviec")}>{verifyMessage}</p>
           )}
 
-          <div className={cx("form-group")}>
-            <label>Mã xác thực</label>
+          <div className={cx("form-groupdangkitktimviec")}>
+            <label className={cx("labelcodedangkitktimviec")}>Mã xác thực</label>
             <input
               type="text"
               name="maXacThuc"
@@ -167,8 +165,8 @@ function DangKiTKTimViec() {
               required
             />
           </div>
-          <div className={cx("form-group")}>
-            <label>Tên Của Bạn</label>
+          <div className={cx("form-groupdangkitktimviec")}>
+            <label className={cx("labeltendangkitktimviec")}>Tên Của Bạn</label>
             <input
               type="text"
               name="hoVaTen"
@@ -178,8 +176,8 @@ function DangKiTKTimViec() {
               required
             />
           </div>
-          <div className={cx("form-group")}>
-            <label>Số Điện Thoại</label>
+          <div className={cx("form-groupdangkitktimviec")}>
+            <label className={cx("labelsdtdangkitktimviec")}>Số Điện Thoại</label>
             <input
               type="text"
               name="sdt"
@@ -189,8 +187,8 @@ function DangKiTKTimViec() {
               required
             />
           </div>
-          <div className={cx("form-group")}>
-            <label>Mật khẩu</label>
+          <div className={cx("form-groupdangkitktimviec")}>
+            <label className={cx("labelpassdangkitktimviec")}>Mật khẩu</label>
             <input
               type="password"
               name="matKhau"
@@ -200,24 +198,24 @@ function DangKiTKTimViec() {
               required
             />
           </div>
-          {/* <div>
-            <label htmlFor="avatar">Ảnh đại diện:</label>
+          <div className={cx("form-groupdangkitktimviec")}>
+            <label className={cx("labelavatardangkitktimviec")} htmlFor="avatar">Ảnh đại diện</label>
             <input
               type="file"
               id="avatar"
               name="avatar"
               onChange={handleFileChange}
             />
-          </div> */}
-          <button type="submit" className={cx("submit-button")}>
+          </div>
+          <button type="submit" className={cx("btndangkitktimviec")}>
             Hoàn thành đăng ký
           </button>
         </form>
         {successMessage && (
-          <p className={cx("success-message")}>{successMessage}</p>
+          <p className={cx("success-messagedangkitktimviec")}>{successMessage}</p>
         )}
         {errorMessage && <p className={cx("error-message")}>{errorMessage}</p>}
-        <p>
+        <p className={cx("linkdangnhaptktimviec")}>
           Bạn đã có tài khoản? <Link to="/dangnhaptktimviec">Đăng nhập</Link>
         </p>
       </div>

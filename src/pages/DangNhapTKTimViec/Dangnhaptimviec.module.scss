@@ -1,35 +1,43 @@
-.logincontainer {
+.logincontainertktimviec {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f4f7fb;
 }
 
-.formdangnhap {
-  background-color: white;
+.formdangnhaptktimviec {
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 550px;
+  max-width: 500px;
 }
 
-h2 {
+.tieudedangnhaptktimviec {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
   color: #333;
 }
 
-label {
+.labelemailtktimviec {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+}
+.labelpasstktimviec {
   display: block;
   margin-bottom: 12px;
   font-size: 14px;
   color: #555;
 }
 
-input {
+
+.emailtktimviec,
+.passwordtktimviec {
   width: 100%;
   padding: 10px;
   margin-top: 6px;
@@ -39,17 +47,25 @@ input {
   color: #333;
 }
 
-input:focus {
+.emailtktimviec:focus,
+.passwordtktimviec:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
 
-button {
+.error {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btndangnhaptktimviec {
   width: 100%;
   padding: 12px;
   background-color: #007bff;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   font-size: 16px;
@@ -57,26 +73,28 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.btndangnhaptktimviec:hover {
   background-color: #0056b3;
 }
 
-.links {
+.quenmatkhautktimviec {
   margin-top: 20px;
   text-align: center;
 }
 
-.link {
+.linkquenmatkhautimviec,
+.linkdangkitimviecmoi {
   color: #007bff;
   text-decoration: none;
   font-size: 14px;
 }
 
-.link:hover {
+.linkquenmatkhautimviec:hover,
+.linkdangkitimviec:hover {
   text-decoration: underline;
 }
 
-p {
+.dangkitktimviecmoi {
   margin-top: 10px;
   font-size: 14px;
   color: #555;

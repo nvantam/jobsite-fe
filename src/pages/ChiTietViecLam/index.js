@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Chitietvieclam.module.scss";
 import classNames from "classnames/bind";
 import logocongty from "~/assets/logocongty.jpg";
