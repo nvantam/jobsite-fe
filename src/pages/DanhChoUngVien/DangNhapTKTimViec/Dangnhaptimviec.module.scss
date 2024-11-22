@@ -1,0 +1,117 @@
+.logincontainertktimviec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7fb;
+}
+
+.formdangnhaptktimviec {
+  position: relative;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.tieudedangnhaptktimviec {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.labelemailtktimviec {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+}
+.labelpasstktimviec {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+.emailtktimviec,
+.passwordtktimviec {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+}
+
+.emailtktimviec:focus,
+.passwordtktimviec:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.error {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btndangnhaptktimviec {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btndangnhaptktimviec:hover {
+  background-color: #0056b3;
+}
+
+.quenmatkhautktimviec {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.linkquenmatkhautimviec,
+.linkdangkitimviecmoi {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.linkquenmatkhautimviec:hover,
+.linkdangkitimviec:hover {
+  text-decoration: underline;
+}
+
+.dangkitktimviecmoi {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.closeButtonTimViec {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.closeButtonTimViec:hover {
+  color: #ff003c;
+}

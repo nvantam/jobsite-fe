@@ -1,0 +1,77 @@
+.logincontainertkadmin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7fb;
+}
+
+.formdangnhaptkadmin {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.tieudedangnhaptkadmin {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.labelemailtkadmin {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+}
+.labelpasstkadmin {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+.emailtkadmin,
+.passwordtkadmin {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+}
+
+.emailtkadmin:focus,
+.passwordtkadmin:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.error {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btndangnhaptkadmin {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btndangnhaptkadmin:hover {
+  background-color: #0056b3;
+}

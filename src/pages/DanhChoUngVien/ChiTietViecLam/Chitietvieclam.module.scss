@@ -1,0 +1,222 @@
+
+.chitietvieclam {
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chitietvieclamtitle {
+  text-align: center;
+}
+
+.thongtinchung {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logocongty {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.thongtin {
+  flex: 1;
+}
+
+.thongtin h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.thongtin h2 {
+  font-size: 24px;
+  margin-top: 27px;
+  font-weight: 700;
+  color: #333;
+}
+
+.thongtinluong {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 30px;
+  font-size: 14px;
+  color: #555;
+}
+
+.thongtinluong div {
+  flex: 1;
+  min-width: 150px;
+}
+
+.nutnophoso {
+  margin-top: 15px;
+}
+
+.nutnophoso button {
+  background-color: #1677ff;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nutnophoso button:hover {
+  background-color: #135bb5;
+}
+
+.thongtinchitiet {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.motacongviec,
+.yeucaukinang,
+.diachilamviec {
+  margin-bottom: 15px;
+}
+
+.motacongviec div,
+.yeucaukinang div,
+.diachilamviec {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.motacongviec div,
+.yeucaukinang div {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.diachilamviec {
+  font-weight: bold;
+  color: #333;
+}
+.dialogUngTuyen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // Nền mờ
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  .dialog-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 500px; // Tăng chiều rộng
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .select-cv {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+
+      .cv-dropdown {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+    }
+
+    .description-input {
+      width: 100%;
+      height: 120px; // Tăng chiều cao
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      resize: none;
+    }
+
+    .dialog-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      .button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &.cancel {
+          background-color: #f5f5f5;
+          color: #333;
+
+          &:hover {
+            background-color: #e0e0e0;
+          }
+        }
+
+        &:not(.cancel) {
+          background-color: #007bff;
+          color: #fff;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .thongtinchung {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .thongtin {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .thongtinluong {
+    flex-direction: column;
+    align-items: center;
+  }
+}

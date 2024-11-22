@@ -1,0 +1,9 @@
+.containerdn {
+  display: flex;
+  .content {
+    flex: 1;
+    max-width: 780px;
+    height: auto;
+    padding: 0px;
+  }
+}

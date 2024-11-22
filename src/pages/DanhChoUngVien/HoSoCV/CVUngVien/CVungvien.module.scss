@@ -1,0 +1,83 @@
+.ung-vien-container {
+  max-width: 960px;
+  min-height: 1000px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 60px;
+
+  .tieu-de {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .form-upload {
+    margin-bottom: 30px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .button {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .button:hover {
+    background: #0056b3;
+  }
+
+  .tieu-de-danh-sach {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .danh-sach-cv {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cv-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+  }
+
+  .ten-cv {
+    font-weight: bold;
+  }
+
+  .link-xem {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+  }
+
+  .link-xem:hover {
+    text-decoration: underline;
+  }
+}

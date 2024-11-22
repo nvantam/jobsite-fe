@@ -1,0 +1,116 @@
+.logincontainertkdoanhnghiep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7fb;
+}
+
+.formdangnhaptkdoanhnghiep {
+  background-color: #ffffff;
+  position: relative;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.tieudedangnhaptkdoanhnghiep {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.labelemailtkdoanhnghiep {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+}
+.labelpasstkdoanhnghiep {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+.emailtkdoanhnghiep,
+.passwordtkdoanhnghiep {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+}
+
+.emailtkdoanhnghiep:focus,
+.passwordtkdoanhnghiep:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.error {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btndangnhaptkdoanhnghiep {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btndangnhaptkdoanhnghiep:hover {
+  background-color: #0056b3;
+}
+
+.quenmatkhautkdoanhnghiep {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.linkquenmatkhaudoanhnghiep,
+.linkdangkidoanhnghiepmoi {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.linkquenmatkhaudoanhnghiep:hover,
+.linkdangkidoanhnghiep:hover {
+  text-decoration: underline;
+}
+
+.dangkitkdoanhnghiepmoi {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: #ff003c;
+}

@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { publicRoutes, RoutersDoanhNghiep } from "./routes";
+import { publicRoutes, routersDoanhNghiep, routersAdmin} from "./routes";
 import { Fragment } from "react";
 import DefaultLayout from "./layouts/DefaultLayout";
 import LayoutDoanhNghiep from "./layouts/LayoutDoanhNghiep";
+import LayoutAdmin from "./layouts/LayoutAdmin"
 function App() {
   return (
     <Router>
@@ -24,7 +25,7 @@ function App() {
             );
           })}
 
-          {RoutersDoanhNghiep.map((route, index) => {
+          {routersDoanhNghiep.map((route, index) => {
             const Layoutdoanhnghiep = route.layout === null ? Fragment : LayoutDoanhNghiep;
             const PageDoanhNghiep = route.component;
             return (
@@ -39,6 +40,22 @@ function App() {
               />
             );
           })}
+          {routersAdmin.map((route, index) => {
+            const Layout = route.layout === null ? Fragment : LayoutAdmin;
+            const Page = route.component;
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  <Layout>
+                    <Page />
+                  </Layout>
+                }
+              />
+            );
+          })}
+
         </Routes>
       </div>
     </Router>

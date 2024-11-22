@@ -1,0 +1,78 @@
+.danhsachbaidangtuyen {
+  margin-left: 80px;
+  margin-top: 20px;
+  flex: 1;
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .job-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    h3 {
+      font-size: 20px;
+      color: #333;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .job-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 15px;
+
+      button {
+        padding: 8px 16px;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:first-child {
+          background-color: #1677ff;
+          color: #fff;
+
+          &:hover {
+            background-color: #1677ff;
+          }
+        }
+
+        &:last-child {
+          background-color: #f44336;
+          color: #fff;
+
+          &:hover {
+            background-color: #e53935;
+          }
+        }
+      }
+    }
+  }
+}

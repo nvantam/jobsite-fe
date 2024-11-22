@@ -1,0 +1,18 @@
+.wrapperadmin {
+  display: flex;
+  height: 100vh;
+
+  .sidebaradmin {
+    width: 300px;
+    background-color: #2c3e50;
+    height: 100%;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+
+  .contentadmin {
+    flex: 1;
+    background-color: #ecf0f1;
+    overflow-y: auto;
+  }
+}

@@ -1,192 +1,187 @@
-/* Base styling */
 .wrapperdoanhnghiep {
-    position: fixed;
-    width: 100%;
-    height: 65px;
-    display: flex;
-    justify-content: center;
-    background-color: #490cd7;
-    z-index: 1000;
-  }
-  
+  position: fixed;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  background-color: #490cd7;
+  z-index: 1000;
+}
+
+.innerdoanhnghiep {
+  width: 1240px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.logodoanhnghiep {
+  width: 50px;
+  height: auto;
+}
+.containerdoanhnghiepa {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+.containerdoanhnghiep {
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.containerdoanhnghiep a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.containerdoanhnghiep a:hover {
+  background-color: #5097c7;
+}
+
+.khoitaikhoandoanhnghiep {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.khoitaikhoandoanhnghiep a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.khoitaikhoandoanhnghiep a:hover {
+  background-color: #5097c7;
+}
+
+.khoitaikhoandoanhnghiep hr {
+  height: 40px;
+  border-left: 1px solid white;
+  margin: 0 10px;
+}
+
+.text1 {
+  font-size: 11px;
+}
+
+.account {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.account span {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+}
+
+.account div {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #4b2ba6;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 100;
+}
+
+.account:hover div {
+  display: block;
+}
+
+.account div ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.account div ul li {
+  padding: 15px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.account div ul li:hover {
+  background-color: #8dbcf1;
+  color: #4b2ba6;
+}
+
+@media (max-width: 768px) {
   .innerdoanhnghiep {
-    width: 1240px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
+    width: 100%;
+    padding: 0 20px;
   }
-  
-  /* Logo styling */
-  .logodoanhnghiep {
-    width: 50px;
-    height: auto;
-  }
-  
-  /* Navigation links container */
+
   .containerdoanhnghiep {
-    display: flex;
-    gap: 20px;
-    font-size: 16px;
-    font-weight: bold;
+    gap: 15px;
+    font-size: 14px;
   }
-  
-  .containerdoanhnghiep a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: color 0.3s, background-color 0.3s;
-  }
-  
-  .containerdoanhnghiep a:hover {
-    background-color: #5097c7;
-  }
-  
-  /* Account container styling */
-  .khoitaikhoandoanhnghiep {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
+
   .khoitaikhoandoanhnghiep a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: color 0.3s, background-color 0.3s;
+    font-size: 14px;
+    padding: 6px 10px;
   }
-  
-  .khoitaikhoandoanhnghiep a:hover {
-    background-color: #5097c7;
-  }
-  
-  /* Divider styling */
-  .khoitaikhoandoanhnghiep hr {
-    height: 40px;
-    border-left: 1px solid white;
-    margin: 0 10px;
-  }
-  
-  /* Text inside account section */
-  .text1 {
-    font-size: 12px;
-  }
-  
-  /* Account dropdown styling */
-  .account {
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .avatar {
+
+  .logodoanhnghiep {
     width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
   }
-  
-  .account span {
-    display: flex;
+}
+
+@media (max-width: 600px) {
+  .innerdoanhnghiep {
+    flex-direction: column;
     align-items: center;
-    font-weight: bold;
-    color: white;
+    height: auto;
+    padding: 10px 0;
   }
-  
-  .account div {
-    position: absolute;
-    top: 110%;
-    right: 0;
-    background-color: #4b2ba6;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  .containerdoanhnghiep {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .khoitaikhoandoanhnghiep {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .khoitaikhoandoanhnghiep hr {
     display: none;
-    z-index: 100;
   }
-  
-  .account:hover div {
-    display: block;
-  }
-  
-  .account div ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+
   .account div ul li {
-    padding: 15px;
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 14px;
+    padding: 10px;
   }
-  
-  .account div ul li:hover {
-    background-color: #8dbcf1;
-    color: #4b2ba6;
+
+  .text1 {
+    font-size: 10px;
   }
-  
-  /* Responsive styling for screens below 768px */
-  @media (max-width: 768px) {
-    .innerdoanhnghiep {
-      width: 100%;
-      padding: 0 20px;
-    }
-  
-    .containerdoanhnghiep {
-      gap: 15px;
-      font-size: 14px;
-    }
-  
-    .khoitaikhoandoanhnghiep a {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-  
-    .logodoanhnghiep {
-      width: 40px;
-    }
-  }
-  
-  /* Responsive styling for screens below 600px */
-  @media (max-width: 600px) {
-    .innerdoanhnghiep {
-      flex-direction: column;
-      align-items: center;
-      height: auto;
-      padding: 10px 0;
-    }
-  
-    .containerdoanhnghiep {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-  
-    .khoitaikhoandoanhnghiep {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-  
-    .khoitaikhoandoanhnghiep hr {
-      display: none;
-    }
-  
-    .account div ul li {
-      font-size: 14px;
-      padding: 10px;
-    }
-  
-    .text1 {
-      font-size: 10px;
-    }
-  }
-  
+}

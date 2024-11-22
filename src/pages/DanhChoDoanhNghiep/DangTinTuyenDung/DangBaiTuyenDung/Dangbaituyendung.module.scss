@@ -1,0 +1,55 @@
+.containerdangbaituyendung {
+  display: flex;
+  flex: 1;
+  margin-left: 80px;
+  margin-top: 20px;
+  flex: 1;
+
+  .jobPostForm {
+    width: 780px;
+  }
+
+  .jobPostForm h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .formGroup {
+    margin-bottom: 15px;
+  }
+
+  .formGroup label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .formGroup textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .submitButton {
+    background-color: #1677ff;
+    color: white;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .submitButton:hover {
+    background-color: #0b5dc9;
+  }
+
+}
