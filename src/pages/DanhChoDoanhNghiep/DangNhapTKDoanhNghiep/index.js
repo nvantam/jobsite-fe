@@ -27,6 +27,8 @@ function DangNhapTKDoanhNghiep() {
         
         localStorage.setItem("userNameDoanhNghiep", email.split("@")[0]);
         localStorage.removeItem("userNameUngVien");
+        localStorage.removeItem("userNameAdmin");
+
         navigate("/trangchudoanhnghiep");
       } else {
         throw new Error("Đăng nhập thất bại. Vui lòng kiểm tra thông tin!");

@@ -29,6 +29,8 @@ function AdminLogin() {
 
       if (response.status === 200) {
         localStorage.setItem("userNameAdmin", email.split("@")[0]);
+        localStorage.removeItem("userNameDoanhNghiep");
+        localStorage.removeItem("userNameUngvien");
         navigate("/admin/quanlytaikhoan");
       } else {
         throw new Error("Đăng nhập thất bại. Vui lòng kiểm tra thông tin!");

@@ -100,7 +100,7 @@ function AdminBaiDangChiTiet() {
       {jobPost && (
         <div className={cx("job-post-detail")}>
           <img
-            src={jobPost.photo_url}
+            src={`http://localhost:8080${jobPost.photo_url}`}
             alt={jobPost.name}
             className={cx("company-photo")}
           />

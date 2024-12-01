@@ -30,6 +30,7 @@ function DangNhapTKTimViec() {
       if (response.status === 200) {
         localStorage.setItem("userNameUngVien", email.split("@")[0]);
         localStorage.removeItem("userNameDoanhNghiep");
+        localStorage.removeItem("userNameAdmin");
         navigate("/vieclam");
       } else {
         throw new Error("Đăng nhập thất bại. Vui lòng kiểm tra thông tin!");

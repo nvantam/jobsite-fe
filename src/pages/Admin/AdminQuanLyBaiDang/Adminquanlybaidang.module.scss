@@ -106,9 +106,23 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    
+
     .dialog-btn:hover {
       background: #0056b3;
+    }
+
+    .adminitembaidang{
+      display: flex;
+    }
+    .adminitembaidang:hover {
+      cursor: pointer;
+    }
+    .company-photo {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-right: 10px;
     }
   }
   

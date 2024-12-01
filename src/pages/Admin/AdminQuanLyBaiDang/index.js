@@ -7,7 +7,7 @@ import styles from "./Adminquanlybaidang.module.scss";
 const cx = classNames.bind(styles);
 
 function AdminQuanLyBaiDang() {
-  const [jobPosts, setJobPosts] = useState([]); 
+  const [jobPosts, setJobPosts] = useState([]);
   const [isDialogOpen, setDialogOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -63,17 +63,22 @@ function AdminQuanLyBaiDang() {
           <div
             key={dangbai.id}
             className={cx("adminbaidang")}
-            onClick={() => handleClickPost(dangbai.id)} 
+            onClick={() => handleClickPost(dangbai.id)}
           >
+            <div className={cx("adminitembaidang")}>
             <img
-              src={dangbai.photo_url}
+              src={`http://localhost:8080${dangbai.photo_url}`}
               alt={dangbai.name}
               className={cx("company-photo")}
             />
-            <h3>{dangbai.title}</h3>
-            <p>
-              <strong>Công ty:</strong> {dangbai.name}
-            </p>
+            <div>
+              <h3>{dangbai.title}</h3>
+              <p>
+                <strong>Công ty:</strong> {dangbai.name}
+              </p>
+            </div>
+            </div>
+           
           </div>
         ))}
       </div>

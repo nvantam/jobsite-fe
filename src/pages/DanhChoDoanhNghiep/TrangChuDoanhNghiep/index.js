@@ -43,7 +43,7 @@ function TrangChuDoanhNghiep() {
 
       <div className={cx("dichvu")}>
         <h2>
-          Website tuyển dụng và tìm kiếm việc làm phổ biến nhất Việt Nam với thị
+          Website tuyển dụng và tìm kiếm việc làm với thị
           trường đông đảo và năng nổ
         </h2>
         <div className={cx("danhsachdichvu")}>

@@ -13,7 +13,9 @@ function CongViecUngTuyen() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/participant" , {withCredentials: true});
+        const response = await axios.get("http://localhost:8080/participant", {
+          withCredentials: true,
+        });
         setJobs(response.data);
       } catch (err) {
         setJobs([]);
@@ -43,15 +45,19 @@ function CongViecUngTuyen() {
         <div className={cx("job-list")}>
           {jobs.map((job) => (
             <div key={job.id} className={cx("job-card")}>
-              <img
-                src={`http://localhost:8080${job.photo_url}`}
-                alt={job.title}
-                className={cx("job-image")}
-              />
-              <div className={cx("job-info")}>
-                <h3 className={cx("job-title")}>{job.title}</h3>
-                <p className={cx("job-salary")}>Mức lương: {job.salary}</p>
-                <p className={cx("job-category")}>Trạng thái: {job.category}</p>
+              <div className={cx("job-card-item")} >
+                <img
+                  src={`http://localhost:8080${job.photo_url}`}
+                  alt={job.title}
+                  className={cx("job-image")}
+                />
+                <div className={cx("job-info")}>
+                  <h3 className={cx("job-title")}>{job.title}</h3>
+                  <p className={cx("job-salary")}>Mức lương: {job.salary}</p>
+                  <p className={cx("job-category")}>
+                    Trạng thái: {job.category}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

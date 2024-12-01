@@ -33,7 +33,7 @@ function Sidebar() {
 
   return (
     <div className={cx("sidebaradmin")}>
-      <h2 className={cx("titleadmin")}>Admin Panel</h2>
+      <h2 className={cx("titleadmin")}>QUẢN TRỊ VIÊN</h2>
       <nav>
         <ul className={cx("menuadmin")}>
           <li className={cx("menu-itemadmin")}>

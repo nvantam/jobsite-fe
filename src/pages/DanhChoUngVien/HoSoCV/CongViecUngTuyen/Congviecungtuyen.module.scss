@@ -21,10 +21,18 @@
     width: 300px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-
+.job-card-item{
+  display: flex;
+}
+.job-card-item:hover{
+  cursor: pointer;
+}
   .job-image {
-    width: 100%;
-    height: 200px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin: 10px;
+    height: 60px;
+    width: 60px;
     object-fit: cover;
   }
 
