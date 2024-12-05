@@ -1,17 +1,16 @@
 import classNames from "classnames/bind";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Thêm useNavigate
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./Vieclam.module.scss";
 import logocongty from "~/assets/logocongty.jpg";
-import { Input, Select, Button } from "antd";
+import { Input, Button } from "antd";
 
 const cx = classNames.bind(styles);
-const { Search } = Input;
-const { Option } = Select;
 
 function ViecLam() {
-  const [danhSachbaiDang, setdanhSachbaiDang] = useState([]);
+  const [danhSachbaiDang, setDanhSachBaiDang] = useState([]);
+  const [filters, setFilters] = useState({ title: "" });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,19 +23,68 @@ function ViecLam() {
       })
       .then((response) => {
         if (Array.isArray(response.data)) {
-          setdanhSachbaiDang(response.data);
+          setDanhSachBaiDang(response.data);
         } else {
-          setdanhSachbaiDang([]);
+          setDanhSachBaiDang([]); 
         }
       })
       .catch(() => {
-        setdanhSachbaiDang([]);
+        setDanhSachBaiDang([]); 
       });
   }, []);
 
-  const onSearch = (value) => {
-    console.log("Tìm kiếm:", value);
+  const handleSearch = async () => {
+    if (!filters.title) {
+      try {
+        const response = await axios.get("http://localhost:8080/post", {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (Array.isArray(response.data)) {
+          setDanhSachBaiDang(response.data);
+          return;
+        } else {
+          setDanhSachBaiDang([]); 
+        }
+      } catch (error) {
+        setDanhSachBaiDang([]); 
+      }
+    } else {
+      try {
+        const response = await axios.get("http://localhost:8080/post", {
+          params: { title: filters.title },
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (Array.isArray(response.data)) {
+          setDanhSachBaiDang(response.data);
+        } else {
+          setDanhSachBaiDang([]); 
+        }
+      } catch (error) {
+        setDanhSachBaiDang([]); 
+      }
+    }
   };
+
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+  
+    if (value !== '' ) {
+      setFilters((prev) => ({ ...prev, title: value }));
+    } else {
+      setFilters({}); 
+    }
+    handleSearch();  
+    console.log(value)
+  };
+  
 
   const handleClickPost = (id) => {
     navigate(`/vieclam/chitietvieclam/${id}`);
@@ -53,38 +101,20 @@ function ViecLam() {
             gap: "10px",
           }}
         >
-          <Search
-            placeholder="Nhập vị trí muốn ứng tuyển"
+          <Input
+            placeholder="Nhập tên việc làm bạn muốn tìm kiếm"
             allowClear
             size="large"
             style={{ flex: 3 }}
-            onSearch={onSearch}
+            value={filters.title}
+            onChange={handleInputChange} 
           />
-
-          <Select
-            placeholder="Lọc theo nghề nghiệp"
-            size="large"
-            style={{ flex: 1 }}
-            allowClear
-          >
-            <Option value="kinhdoanh">Kinh Doanh</Option>
-            <Option value="cntt">Công Nghệ Thông Tin</Option>
-          </Select>
-
-          <Select
-            placeholder="Lọc theo tỉnh thành"
-            size="large"
-            style={{ flex: 1 }}
-            allowClear
-          >
-            <Option value="hanoi">Hà Nội</Option>
-            <Option value="tphcm">TP HCM</Option>
-          </Select>
 
           <Button
             type="primary"
             size="large"
             style={{ backgroundColor: "#6e1fff", flex: 1 }}
+            onClick={handleSearch}
           >
             Tìm việc
           </Button>
@@ -92,30 +122,38 @@ function ViecLam() {
       </div>
       <div className={cx("tatcabaidang")}>
         <h2>Danh Sách Việc Làm</h2>
-        {danhSachbaiDang.map((baidang) => (
-          <div
-            key={baidang.id} 
-            className={cx("danhsachbaidang")}
-            onClick={() => handleClickPost(baidang.id)} 
-            style={{ cursor: "pointer" }} 
-          >
-            <div className={cx("baidang")}>
-              <h3>{baidang.title}</h3>
-              <div className={cx("thongtin")}>
-                <img src={logocongty} alt="logo" className={cx("logocongty")} />
-                <div className={cx("thongtinbaidang")}>
-                  <h4>Công ty {baidang.name}</h4>
-                  <div>Lương: {baidang.salary}</div>
-                  <div>Địa Chỉ: {baidang.address}</div>
-                  <div>
-                    Ngày Hết Hạn:{" "}
-                    {new Date(baidang.close_at).toLocaleDateString()}
+        {danhSachbaiDang.length > 0 ? (
+          danhSachbaiDang.map((baidang) => (
+            <div
+              key={baidang.id}
+              className={cx("danhsachbaidang")}
+              onClick={() => handleClickPost(baidang.id)}
+              style={{ cursor: "pointer" }}
+            >
+              <div className={cx("baidang")}>
+                <div className={cx("thongtin")}>
+                  <img
+                    src={logocongty}
+                    alt="logo công ty"
+                    className={cx("logocongty")}
+                  />
+                  <div className={cx("thongtinbaidang")}>
+                    <h4>{baidang.name}</h4>
+                    <h3>{baidang.title}</h3>
+                    <div>Lương: {baidang.salary}</div>
+                    <div>Địa Chỉ: {baidang.address}</div>
+                    <div>
+                      Ngày Hết Hạn:{" "}
+                      {new Date(baidang.close_at).toLocaleDateString()}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>Không tìm thấy bài đăng nào phù hợp.</p>
+        )}
       </div>
     </div>
   );

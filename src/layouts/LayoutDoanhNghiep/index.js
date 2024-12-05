@@ -12,6 +12,7 @@ function LayoutDoanhNghiep({ children }) {
       <div className={cx("containerdoanhnghiep")}>
         <div className={cx("content")}>{children}</div>
       </div>
+      
       <FooterDoanhNghiep />
     </div>
   );

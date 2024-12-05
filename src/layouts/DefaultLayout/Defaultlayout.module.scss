@@ -5,9 +5,12 @@
 }
 
 .container{
+    flex: 1; 
     margin-top: 65px;
     width:100%;
     max-width: 1240px; 
     min-height: 800px;
     background-color: white;
 }
+
+

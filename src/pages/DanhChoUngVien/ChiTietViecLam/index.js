@@ -26,7 +26,7 @@ function ChiTietViecLam() {
       .then((response) => {
         setChiTiet(response.data);
       })
-      .catch((error) => {});
+      .catch(() => {});
 
     axios
       .get("http://localhost:8080/cv", {

@@ -26,6 +26,7 @@ function DangTinTuyenDung() {
         {activeTab === "hosoungtuyen" && <div><HoSoUngTuyen/></div>}
         {activeTab === "account" && <div><ThongTinTKDoanhNghiep/></div>}
         {activeTab === "changePassword" && <div><DoiMatKhauDoanhNghiep/></div>}
+
       </main>
     </div>
   );

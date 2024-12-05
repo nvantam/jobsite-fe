@@ -156,7 +156,7 @@ function AdminQuanLyTaiKhoan() {
               <th>Số điện thoại</th>
               <th>Mô tả</th>
               <th>File URL</th>
-              <th>Trạng thái</th>
+              <th>Hành động</th>
             </tr>
           </thead>
           <tbody>
@@ -185,13 +185,13 @@ function AdminQuanLyTaiKhoan() {
                     className={cx("btnxulytaikhoan")}
                     onClick={() => handleButtonClick(account.id)}
                   >
-                    Active
+                    Xác nhận
                   </button>
                   <button
                     className={cx("btnxulytaikhoan")}
                     onClick={() => handleButtonDeniedClick(account.id)}
                   >
-                    Denied
+                    Từ chối
                   </button>
                 </td>
               </tr>

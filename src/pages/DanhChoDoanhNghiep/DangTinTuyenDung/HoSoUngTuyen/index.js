@@ -8,10 +8,12 @@ const cx = classNames.bind(styles);
 function HoSoUngTuyen() {
   const [applications, setApplications] = useState([]);
   const [acceptedApplications, setAcceptedApplications] = useState([]);
+  const [acceptedInterviews, setAcceptedInterviews] = useState([]);
 
   useEffect(() => {
     fetchApplications();
     fetchAcceptedApplications();
+    fetchAcceptedInterview();
   }, []);
 
   const fetchApplications = async () => {
@@ -22,6 +24,17 @@ function HoSoUngTuyen() {
       setApplications(response.data || []);
     } catch (error) {
       setApplications([]);
+    }
+  };
+
+  const fetchAcceptedInterview = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/admin/apply/interview ",
+        { withCredentials: true }
+      );
+      setAcceptedInterviews(response.data || []);
+    } catch (error) {
     }
   };
 
@@ -36,7 +49,31 @@ function HoSoUngTuyen() {
     }
   };
 
-  const handleStatusUpdate = async (id, status) => {
+  const handleStatusUpdateInterview = async (id, status) => {
+    try {
+      await axios.put(
+        "http://localhost:8080/admin/apply",
+        { id, status },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+
+      alert(
+        `Trạng thái cập nhật thành công: ${
+          status === "interview" ? "Chấp nhận" : "Từ chối"
+        } Admin đã gửi thông báo đến ứng viên`
+      );
+
+      fetchApplications();
+      fetchAcceptedInterview();
+      fetchAcceptedApplications();
+    } catch (error) {
+    }
+  };
+
+  const handleStatusUpdatePass = async (id, status) => {
     try {
       await axios.put(
         "http://localhost:8080/admin/apply",
@@ -53,12 +90,11 @@ function HoSoUngTuyen() {
         } Admin đã gửi thông báo đến ứng viên`
       );
 
-      fetchApplications();
+      fetchAcceptedInterview();
       fetchAcceptedApplications();
     } catch (error) {
     }
   };
-
   return (
     <div className={cx("hosoungtuyen")}>
       <div>
@@ -92,13 +128,13 @@ function HoSoUngTuyen() {
                     <td className={cx("cottrangthai")}>
                       <button
                         className={cx("acceptButton")}
-                        onClick={() => handleStatusUpdate(app.apply_id, "accept")}
+                        onClick={() => handleStatusUpdateInterview(app.apply_id, "interview")}
                       >
-                        Chấp nhận
+                        Phỏng vấn
                       </button>
                       <button
                         className={cx("denyButton")}
-                        onClick={() => handleStatusUpdate(app.apply_id, "deny")}
+                        onClick={() => handleStatusUpdateInterview(app.apply_id, "deny")}
                       >
                         Từ chối
                       </button>
@@ -109,6 +145,64 @@ function HoSoUngTuyen() {
                 <tr>
                   <td colSpan="4" className={cx("khongcoso")}>
                     <p>Chưa có hồ sơ ứng tuyển nào</p>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className={cx("hosouchapnhan")}>
+        <h2 className={cx("tieude")}>Hồ Sơ Đang Phỏng Vấn</h2>
+        <div className={cx("banghoso")}>
+          <table className={cx("banghosotable")}>
+            <thead>
+              <tr>
+                <th className={cx("cottenhoso")}>Giới thiệu</th>
+                <th className={cx("cottencv")}>CV ứng viên</th>
+                <th className={cx("cottindang")}>Tin đăng</th>
+                <th className={cx("cotcategory")}>Danh mục</th>
+                <th className={cx("cottrangthai")}>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              {acceptedInterviews.length >= 0 ? (
+                acceptedInterviews.map((app) => (
+                  <tr key={app.post_id}>
+                    <td className={cx("cottenhoso")}>{app.description}</td>
+                    <td className={cx("cottencv")}>
+                      <a
+                        href={`http://localhost:8080${app.cv_url}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={cx("link-xem")}
+                      >
+                        Xem CV
+                      </a>
+                    </td>
+                    <td className={cx("cottindang")}>{app.title}</td>
+                    <td className={cx("cotcategory")}>{app.category}</td>
+                    <td className={cx("cottrangthai")}>
+                      <button
+                        className={cx("acceptButton")}
+                        onClick={() => handleStatusUpdatePass(app.apply_id, "accept")}
+                      >
+                        Thông qua
+                      </button>
+                      <button
+                        className={cx("denyButton")}
+                        onClick={() => handleStatusUpdatePass(app.apply_id, "deny")}
+                      >
+                        Từ chối
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" className={cx("khongcoso")}>
+                    <p>Chưa có hồ sơ nào được chấp nhận</p>
                   </td>
                 </tr>
               )}

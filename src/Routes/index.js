@@ -30,6 +30,7 @@ const routersDoanhNghiep = [
   { path: "/thongbaodoanhnghiep", component: ThongBaoDoanhNghiep },
   { path: "/dangkitkdoanhnghiep", component: DangKiTKDoanhNghiep, layout: null},
   { path: "/dangnhaptkdoanhnghiep", component: DangNhapTKDoanhNghiep, layout: null},
+
 ];
 const routersAdmin = [
   { path: "/admin", component: AdminLogin, layout: null },

@@ -25,6 +25,18 @@ function DangBaiUngTuyen() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const selectedDate = new Date(formData.close_at);
+    const currentDate = new Date();
+    if(formData.skill ==="" || formData.title === "" || formData.salary==="" || formData.description==="" || formData.address===""){
+      alert("Bạn không được để trống thông tin bài tuyển dụng.");
+      return;
+    }
+    if (selectedDate <= currentDate) {
+      alert("Ngày hết hạn phải lớn hơn ngày hiện tại. Vui lòng kiểm tra lại.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:8080/company",
@@ -53,86 +65,82 @@ function DangBaiUngTuyen() {
         error.response && error.response.data && error.response.data.error
           ? error.response.data.error
           : "Đã xảy ra lỗi khi đăng bài.";
-      console.error("Lỗi khi đăng bài:", error);
       alert(errorMessage);
     }
   };
 
   return (
     <div className={cx("containerdangbaituyendung")}>
-        <div className={cx("jobPostForm")}>
-          <h2>Đăng Bài Tuyển Dụng Công Việc</h2>
-          <form onSubmit={handleSubmit}>
-            <div className={cx("formGroup")}>
-              <label>Tên Công Việc</label>
+      <div className={cx("jobPostForm")}>
+        <h2>Đăng Bài Tuyển Dụng Công Việc</h2>
+        <form onSubmit={handleSubmit}>
+          <div className={cx("formGroup")}>
+            <label>Tên Công Việc</label>
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleInputChange}
+              placeholder="Nhập tên công việc"
+            />
+          </div>
+          <div className={cx("formGroup")}>
+            <label>Mô Tả Công Việc</label>
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleInputChange}
+              placeholder="Nhập mô tả công việc"
+            ></textarea>
+          </div>
+          <div className={cx("formGroup")}>
+            <label>Kỹ Năng Yêu Cầu</label>
+            <textarea
+              name="skill"
+              value={formData.skill}
+              onChange={handleInputChange}
+              placeholder="Nhập kỹ năng yêu cầu"
+            ></textarea>
+          </div>
+          <div className={cx("formGroup")}>
+            <label>Nơi Làm Việc</label>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              placeholder="Nhập nơi làm việc"
+            />
+          </div>
+          <div className={cx("formGroup")}>
+            <label>Mức Lương</label>
+            <input
+              type="text"
+              name="salary"
+              value={formData.salary}
+              onChange={handleInputChange}
+              placeholder="Nhập mức lương"
+            />
+          </div>
+          <div className={cx("formGroup")}>
+            <label>Ngày Hết Hạn Bài Đăng</label>
+            <div>
               <input
-                type="text"
-                name="title"
-                value={formData.title}
+                type="date"
+                name="close_at"
+                value={formData.close_at ? formData.close_at.split("T")[0] : ""}
                 onChange={handleInputChange}
-                placeholder="Nhập tên công việc"
+                placeholder="Nhập ngày hết hạn (yyyy-mm-dd)"
               />
             </div>
-            <div className={cx("formGroup")}>
-              <label>Mô Tả Công Việc</label>
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleInputChange}
-                placeholder="Nhập mô tả công việc"
-              ></textarea>
-            </div>
-            <div className={cx("formGroup")}>
-              <label>Kỹ Năng Yêu Cầu</label>
-              <textarea
-                name="skill"
-                value={formData.skill}
-                onChange={handleInputChange}
-                placeholder="Nhập kỹ năng yêu cầu"
-              ></textarea>
-            </div>
-            <div className={cx("formGroup")}>
-              <label>Nơi Làm Việc</label>
-              <input
-                type="text"
-                name="address"
-                value={formData.address}
-                onChange={handleInputChange}
-                placeholder="Nhập nơi làm việc"
-              />
-            </div>
-            <div className={cx("formGroup")}>
-              <label>Mức Lương</label>
-              <input
-                type="text"
-                name="salary"
-                value={formData.salary}
-                onChange={handleInputChange}
-                placeholder="Nhập mức lương"
-              />
-            </div>
-            <div className={cx("formGroup")}>
-              <label>Ngày Hết Hạn Bài Đăng</label>
-              <div>
-                <input
-                  type="date"
-                  name="close_at"
-                  value={formData.close_at}
-                  onChange={handleInputChange}
-                  placeholder="Nhập ngày hết hạn (dd/mm/yyyy)"
-                />
-              </div>
-            </div>
-            <button type="submit" className={cx("submitButton")}>
-              Đăng bài
-            </button>
-          </form>
-        </div>
+          </div>
+          <button type="submit" className={cx("submitButton")}>
+            Đăng bài
+          </button>
+        </form>
+      </div>
     </div>
-
-    
   );
-
 }
 
 export default DangBaiUngTuyen;
