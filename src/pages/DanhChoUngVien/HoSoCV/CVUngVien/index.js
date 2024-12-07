@@ -10,8 +10,9 @@ function CVUngVien() {
   const [cvList, setCvList] = useState([]);
   const [filename, setFilename] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [cvToDelete, setCvToDelete] = useState(null);
 
-  // Xử lý khi chọn file
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
@@ -66,7 +67,7 @@ function CVUngVien() {
         alert("Tải lên thành công!");
         setFilename("");
         setFileBase64("");
-        fetchCvList(); 
+        fetchCvList();
       }
     } catch (error) {
       alert("Đã xảy ra lỗi khi tải lên CV.");
@@ -82,8 +83,39 @@ function CVUngVien() {
       });
       setCvList(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
-      setCvList([]); 
+      setCvList([]);
     }
+  };
+
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8080/cv`,
+        { 
+          data: { id: cvToDelete }, 
+          withCredentials: true 
+        }
+      );
+
+      if (response.status === 200) {
+        alert("Xoá CV thành công!");
+        fetchCvList();
+      }
+    } catch (error) {
+      alert("Đã xảy ra lỗi khi xoá CV.");
+    } finally {
+      setIsDialogOpen(false);
+      setCvToDelete(null);
+    }
+  };
+  const openDialog = (cvId) => {
+    setCvToDelete(cvId);
+    setIsDialogOpen(true);
+  };
+
+  const closeDialog = () => {
+    setIsDialogOpen(false);
+    setCvToDelete(null);
   };
 
   useEffect(() => {
@@ -141,9 +173,31 @@ function CVUngVien() {
               >
                 Xem CV
               </a>
+              <button
+                onClick={() => openDialog(cv.id)}
+                className={cx("button-delete")}
+              >
+                Xoá CV
+              </button>
             </li>
           ))}
         </ul>
+      )}
+
+      {isDialogOpen && (
+        <div className={cx("dialog-overlay")}>
+          <div className={cx("dialog")}>
+            <p>Bạn có chắc chắn muốn xoá CV này không?</p>
+            <div className={cx("dialog-actions")}>
+              <button onClick={handleDelete} className={cx("button-confirm")}>
+                Có
+              </button>
+              <button onClick={closeDialog} className={cx("button-cancel")}>
+                Không
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

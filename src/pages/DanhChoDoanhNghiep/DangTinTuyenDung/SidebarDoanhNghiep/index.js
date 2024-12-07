@@ -70,6 +70,13 @@ function SidebarDoanhNghiep({ activeTab, onTabClick }) {
           >
             Hồ sơ ứng tuyển
           </li>
+
+          <li
+            className={cx({ [styles.active]: activeTab === "thongkehosoungtuyen" })}
+            onClick={() => onTabClick("thongkehosoungtuyen")}
+          >
+            Thống kê hồ sơ ứng tuyển
+          </li>
           <li
             className={cx({ [styles.active]: activeTab === "account" })}
             onClick={() => onTabClick("account")}

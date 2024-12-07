@@ -7,6 +7,8 @@ import BaiDanngCuaToi from "./BaiDangCuaToi";
 import HoSoUngTuyen from "./HoSoUngTuyen";
 import ThongTinTKDoanhNghiep from "./ThongTinTKDoanhNghiep";
 import DoiMatKhauDoanhNghiep from "./DoiMatKhauDoanhNghiep";
+import ThongKeHoSoUngTuyen from "./ThongKeHoSoUngTuyen";
+
 const cx = classNames.bind(styles);
 
 function DangTinTuyenDung() {
@@ -24,6 +26,7 @@ function DangTinTuyenDung() {
         {activeTab === "dangbai" && <div> <DangBaiUngTuyen/> </div>}
         {activeTab === "baidangcuatoi" && <div><BaiDanngCuaToi/></div>}
         {activeTab === "hosoungtuyen" && <div><HoSoUngTuyen/></div>}
+        {activeTab === "thongkehosoungtuyen" && <div><ThongKeHoSoUngTuyen/></div>}
         {activeTab === "account" && <div><ThongTinTKDoanhNghiep/></div>}
         {activeTab === "changePassword" && <div><DoiMatKhauDoanhNghiep/></div>}
 
