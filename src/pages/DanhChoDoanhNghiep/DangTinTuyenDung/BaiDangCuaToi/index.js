@@ -30,7 +30,7 @@ function BaiDangCuaToi() {
         withCredentials: true,
       });
       if (response.status === 200) {
-        setPosts(response.data);
+        setPosts(response.data || []);
       } else {
         setError("Không thể tải bài đăng. Vui lòng thử lại.");
       }
@@ -180,7 +180,7 @@ function BaiDangCuaToi() {
       {loading && <p>Đang tải dữ liệu...</p>}
       {error && <p className={cx("error")}>{error}</p>}
       <div className={cx("job-list")}>
-        {posts.length === 0 ? (
+      {Array.isArray(posts) && posts.length === 0  ? (
           <p>Bạn chưa đăng bài tuyển dụng nào.</p>
         ) : (
           posts.map((post) => (

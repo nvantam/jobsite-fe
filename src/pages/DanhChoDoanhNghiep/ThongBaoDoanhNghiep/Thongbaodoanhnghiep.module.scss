@@ -1,12 +1,8 @@
 .containerthongbaodoanhnghiep {
-    max-width: 800px;
-    height: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+
   h2 {
     text-align: center;
     font-size: 24px;
@@ -14,30 +10,37 @@
     margin-bottom: 20px;
     color: #333;
   }
-  
+
   .notification-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
   }
-  
+
   .notification-item {
-    padding: 15px;
-    background-color: #fff;
+    background-color: #ffffff;
+    padding: 15px 20px;
     border-radius: 8px;
+    border-left: 4px solid #4caf50; // Dải xanh mặc định
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .notification-item.new {
+    background-color: #e8f5e9; // Màu nền nhạt cho thông báo mới
+    border-left-color: #ff9800; // Dải màu cam cho thông báo mới
+  }
+
+  .notification-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
-  
-  .notification-item p {
+
+  .notification-item h3 {
     margin: 0;
     font-size: 16px;
-    color: #555;
-  }
-  
-  .notification-item:hover {
-    background-color: #f0f0f0;
+    font-weight: 600;
+    color: #333;
   }
 }
-  

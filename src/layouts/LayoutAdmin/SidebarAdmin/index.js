@@ -9,7 +9,6 @@ const cx = classNames.bind(styles);
 function Sidebar() {
   const navigate = useNavigate();
 
-  // Hàm xử lý đăng xuất
   const handleLogout = async () => {
     try {
       const response = await axios.post(
@@ -41,7 +40,7 @@ function Sidebar() {
               to="/admin/quanlytaikhoan"
               className={(navData) => cx({ active: navData.isActive })}
             >
-              Quản Lý Tài Khoản
+              Quản Lý Tài Khoản Doanh Nghiệp
             </NavLink>
           </li>
           <li className={cx("menu-itemadmin")}>
@@ -60,7 +59,14 @@ function Sidebar() {
               Quản Lý Thông Báo
             </NavLink>
           </li>
-
+          <li className={cx("menu-itemadmin")}>
+            <NavLink
+              to="/admin/quanlynhanvienquantri"
+              className={(navData) => cx({ active: navData.isActive })}
+            >
+              Quản Lý Quản Lý Nhân Viên
+            </NavLink>
+          </li>
           <li className={cx("menu-itemadmin")}>
             <NavLink
               to="#"

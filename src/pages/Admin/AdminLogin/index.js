@@ -50,7 +50,7 @@ function AdminLogin() {
         </h2>
         <form onSubmit={handleLogin}>
           <label className={cx("labelemailtkadmin")}>
-            Địa chỉ email
+            Tên đăng nhập
             <input
               type="text"
               value={email}

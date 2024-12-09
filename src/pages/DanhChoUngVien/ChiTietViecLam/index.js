@@ -65,6 +65,7 @@ function ChiTietViecLam() {
       alert("Vui lòng nhập lý do ứng tuyển!");
       return;
     }
+
     axios
       .post(
         "http://localhost:8080/post/apply",
@@ -86,7 +87,7 @@ function ChiTietViecLam() {
       })
       .catch((error) => {
         setCvList([]);
-        alert("Có lỗi xảy ra khi ứng tuyển.");
+        alert("Bạn đã ứng tuyển bài đăng này 1 lần rồi!");
       });
   };
 
@@ -114,7 +115,7 @@ function ChiTietViecLam() {
                 ? new Date(chiTiet.close_at).toLocaleDateString()
                 : "Đang cập nhật"}
             </div>
-            <div>Địa chỉ: {chiTiet.address}</div>
+            <div>Địa Chỉ Làm Việc: {chiTiet.address}</div>
           </div>
           <div className={cx("nutnophoso")}>
             <button onClick={() => checkDangNhap()}>Ứng tuyển ngay</button>

@@ -1,11 +1,7 @@
 .containerthongbao {
-  flex: 1;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
   h2 {
     text-align: center;
@@ -18,25 +14,29 @@
   .notification-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px; /* Khoảng cách giữa các thông báo */
   }
 
   .notification-item {
-    padding: 15px;
-    background-color: #fff;
+    background-color: #ffffff;
+    padding: 15px 20px;
     border-radius: 8px;
+    border-left: 4px solid #4caf50; /* Dải màu xanh bên trái */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s; /* Hiệu ứng hover */
   }
 
   .notification-item p {
     margin: 0;
     font-size: 16px;
-    color: #555;
+    font-weight: 500;
+    color: #333;
   }
 
   .notification-item:hover {
-    background-color: #f0f0f0;
+    transform: translateY(-2px); /* Nhẹ nhàng di chuyển lên khi hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
     cursor: pointer;
   }
 }

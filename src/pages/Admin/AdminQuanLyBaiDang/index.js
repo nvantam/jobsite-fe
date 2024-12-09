@@ -57,7 +57,7 @@ function AdminQuanLyBaiDang() {
           </div>
         </div>
       )}
-      <h2 className={cx("adminquanlybaidang")}>Quản lý Bài Đăng</h2>
+      <h2 className={cx("adminquanlybaidang")}>Quản Lý Bài Đăng</h2>
       <div className={cx("admindanhsachbaidang")}>
         {jobPosts.map((dangbai) => (
           <div
@@ -66,19 +66,21 @@ function AdminQuanLyBaiDang() {
             onClick={() => handleClickPost(dangbai.id)}
           >
             <div className={cx("adminitembaidang")}>
-            <img
-              src={`http://localhost:8080${dangbai.photo_url}`}
-              alt={dangbai.name}
-              className={cx("company-photo")}
-            />
-            <div>
-              <h3>{dangbai.title}</h3>
-              <p>
-                <strong>Công ty:</strong> {dangbai.name}
-              </p>
+              <img
+                src={`http://localhost:8080${dangbai.photo_url}`}
+                alt={dangbai.name}
+                className={cx("company-photo")}
+              />
+              <div>
+                <h3>{dangbai.title}</h3>
+                <p>
+                  <strong>Công ty:</strong> {dangbai.name}
+                </p>
+                <p>
+                  <strong>Trạng thái:</strong> {dangbai.status}
+                </p>
+              </div>
             </div>
-            </div>
-           
           </div>
         ))}
       </div>

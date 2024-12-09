@@ -63,7 +63,7 @@ function ThongBao() {
               className={cx("notification-item")}
               onClick={() => handleNotificationClick(noti.id)} 
             >
-              <p>{noti.title}</p>
+              <h3>{noti.title}</h3>
             </div>
           ))
         ) : (

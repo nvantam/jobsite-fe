@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import axios from "axios";
-import { Modal } from "antd"; // Import Modal từ Ant Design
+import { Modal } from "antd";
 import styles from "./Thongbaodoanhnghiep.module.scss";
 
 const cx = classNames.bind(styles);
 
 function ThongBao() {
-  const [notifications, setNotifications] = useState([]); 
-  const [selectedNotification, setSelectedNotification] = useState(null); 
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [notifications, setNotifications] = useState([]);
+  const [selectedNotification, setSelectedNotification] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     axios
@@ -21,7 +21,11 @@ function ThongBao() {
       })
       .then((response) => {
         if (Array.isArray(response.data)) {
-          setNotifications(response.data);
+          const updatedNotifications = response.data.map((noti) => {
+            const isNew = new Date() - new Date(noti.created_at) < 7 * 24 * 60 * 60 * 1000;
+            return { ...noti, isNew };
+          });
+          setNotifications(updatedNotifications);
         } else {
           setNotifications([]);
         }
@@ -40,16 +44,15 @@ function ThongBao() {
         },
       })
       .then((response) => {
-        setSelectedNotification(response.data); 
-        setIsModalOpen(true); 
+        setSelectedNotification(response.data);
+        setIsModalOpen(true);
       })
-      .catch(() => {
-      });
+      .catch(() => {});
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setSelectedNotification(null); 
+    setSelectedNotification(null);
   };
 
   return (
@@ -60,10 +63,10 @@ function ThongBao() {
           notifications.map((noti) => (
             <div
               key={noti.id}
-              className={cx("notification-item")}
-              onClick={() => handleNotificationClick(noti.id)} 
+              className={cx("notification-item", { new: noti.isNew })} 
+              onClick={() => handleNotificationClick(noti.id)}
             >
-              <p>{noti.title}</p>
+              <h3>{noti.title}</h3>
             </div>
           ))
         ) : (
