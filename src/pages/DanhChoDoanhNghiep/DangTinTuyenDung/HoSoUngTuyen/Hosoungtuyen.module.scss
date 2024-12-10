@@ -1,27 +1,27 @@
 .hosoungtuyen {
-    // padding: 20px;
-    background-color: #ffffff;
-    width: 1000px;
+  // padding: 20px;
+  background-color: #ffffff;
+  width: 1000px;
   .tieude {
     font-size: 24px;
     font-weight: bold;
     color: #000000;
     text-align: center;
   }
-  
+
   .banghoso {
     margin-top: 20px;
     background-color: rgb(255, 255, 255);
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   .banghosotable {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
-  
+
   .cottenhoso,
   .cottindang,
   .cottencv,
@@ -33,18 +33,18 @@
     text-align: left;
     border: 1px solid #ddd;
   }
-  
+
   .thongbaokhongcv {
     text-align: center;
     padding: 20px;
   }
-  
+
   .iconthongbao {
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
   }
-  
+
   .thongbaotext {
     color: #999;
     font-size: 16px;
@@ -77,26 +77,146 @@
     background-color: #1172f2;
   }
 }
-  
+
 .link-xem {
-  display: inline-block; 
-  padding: 8px 16px; 
-  font-size: 14px; 
-  font-weight: bold; 
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
   text-align: center;
-  text-decoration: none; 
-  color: #fff; 
+  text-decoration: none;
+  color: #fff;
   background-color: #007bff;
-  border-radius: 4px; 
-  transition: background-color 0.3s ease, transform 0.2s ease; 
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: #0056b3; 
-    transform: scale(1.05); 
+    background-color: #0056b3;
+    transform: scale(1.05);
   }
 
   &:active {
-    background-color: #003f7f; 
-    transform: scale(1); 
+    background-color: #003f7f;
+    transform: scale(1);
+  }
+}
+
+.guithongtinreview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  .jobPostForm {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out forwards;
+    position: relative;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .formGroup {
+    margin-bottom: 20px;
+  }
+
+  .formGroup label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+  }
+
+  .formGroup input[type="text"],
+  .formGroup input[type="date"],
+  .formGroup textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .formGroup input[type="text"]:focus,
+  .formGroup input[type="date"]:focus,
+  .formGroup textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: none;
+  }
+
+  .submitButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 10px;
+  }
+
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+
+  .cancelButton {
+    background-color: #f44336;
+    color: #fff;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .cancelButton:hover {
+    background-color: #d32f2f;
+  }
+
+  .cancelButton,
+  .submitButton {
+    display: block;
+    margin-top: 10px;
+  }
+
+  input[type="text"],
+  input[type="date"] {
+    font-size: 14px;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(50%);
   }
 }

@@ -6,8 +6,8 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 function CongViecUngTuyen() {
-  const [jobs, setJobs] = useState([]); 
-  const [loading, setLoading] = useState(true); 
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -16,17 +16,51 @@ function CongViecUngTuyen() {
         const response = await axios.get("http://localhost:8080/participant", {
           withCredentials: true,
         });
-        
         setJobs(Array.isArray(response.data) ? response.data : []);
       } catch (err) {
-        setError(err.message); 
+        setError(err.message);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
     fetchJobs();
   }, []);
+
+  const handleJobAction = async (postId, status) => {
+    try {
+      await axios.put(
+        "http://localhost:8080/participant/apply",
+        {
+          post_id: postId,
+          status: status, 
+        },
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      alert(
+        `Đã ${
+          status === "accept" ? "chấp nhận" : "từ chối"
+        } công việc thành công!`
+      );
+      setJobs((prevJobs) =>
+        prevJobs.map((job) =>
+          job.id === postId
+            ? {
+                ...job,
+                category: status === "accept" ? "Đồng ý nhận việc" : "Từ chối nhận việc",
+              }
+            : job
+        )
+      );
+    } catch (error) {
+      alert("Có lỗi xảy ra, vui lòng thử lại.");
+    }
+  };
 
   if (loading) {
     return <div className={cx("loading")}>Đang tải dữ liệu...</div>;
@@ -61,6 +95,22 @@ function CongViecUngTuyen() {
                 <h3 className={cx("job-title")}>{job.title}</h3>
                 <p className={cx("job-salary")}>Mức lương: {job.salary}</p>
                 <p className={cx("job-category")}>Trạng thái: {job.category}</p>
+                {job.category === "Thông qua" && (
+                  <div>
+                    <button
+                      className={cx("btnaccept")}
+                      onClick={() => handleJobAction(job.id, "accept")}
+                    >
+                      Chấp nhận
+                    </button>
+                    <button
+                      className={cx("btndeny")}
+                      onClick={() => handleJobAction(job.id, "deny")}
+                    >
+                      Từ chối
+                    </button>
+                  </div>
+                )}
               </div>
               <a
                 href={`http://localhost:3000/vieclam/chitietvieclam/${job.id}`}

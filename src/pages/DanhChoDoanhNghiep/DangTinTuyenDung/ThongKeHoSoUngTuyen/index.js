@@ -63,7 +63,7 @@ function ThongKeHoSoUngTuyen() {
 
   return (
     <div className={cx("thongkehosoungtuyen")}>
-      <h2>Thống Kê Hồ Sơ Ứng Tuyển Theo Tháng</h2>
+      <h2>Thống Kê Hồ Sơ Trúng Tuyển Theo Tháng</h2>
       <ResponsiveContainer width="100%" height={400}>
         <BarChart
           data={data}

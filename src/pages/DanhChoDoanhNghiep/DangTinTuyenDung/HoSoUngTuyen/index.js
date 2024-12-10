@@ -9,6 +9,18 @@ function HoSoUngTuyen() {
   const [applications, setApplications] = useState([]);
   const [acceptedApplications, setAcceptedApplications] = useState([]);
   const [acceptedInterviews, setAcceptedInterviews] = useState([]);
+  const [dialogSendReview, setDialogSendReview] = useState(false);
+  const [formData, setFormData] = useState({
+    id: null,
+    content: "",
+    address: "",
+    hour: "",
+    datereview: "",
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     fetchApplications();
@@ -34,8 +46,7 @@ function HoSoUngTuyen() {
         { withCredentials: true }
       );
       setAcceptedInterviews(response.data || []);
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const fetchAcceptedApplications = async () => {
@@ -45,11 +56,74 @@ function HoSoUngTuyen() {
         { withCredentials: true }
       );
       setAcceptedApplications(response.data || []);
+    } catch (error) {}
+  };
+  const openSendReviewDialog = (id) => {
+    setFormData({ ...formData, id });
+    setDialogSendReview(true);
+  };
+
+  const closeSendReviewDialog = () => {
+    setDialogSendReview(false);
+    setFormData({ id: null, content: "", address: "", datereview: "" });
+  };
+
+  const handleStatusUpdateInterview = async (e) => {
+    e.preventDefault();
+
+    const formatDate = (datereview) => {
+      const d = new Date(datereview);
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    };
+
+    const selectedDate = new Date(formData.datereview);
+    const currentDate = new Date();
+
+    if (
+      formData.content === "" ||
+      formData.address === "" ||
+      formData.time === "" ||
+      formData.hour === ""
+    ) {
+      alert("Bạn cần nhập đủ dữ liệu!");
+      return;
+    }
+    if (selectedDate <= currentDate) {
+      alert("Ngày phỏng vấn phải lớn hơn ngày hiện tại!");
+      return;
+    }
+
+    try {
+      const { id, content, address, hour, datereview } = formData;
+      const payload = {
+        id,
+        status: "interview",
+        message: content,
+        address,
+        time: formatDate(datereview),
+        hour,
+      };
+
+      await axios.put("http://localhost:8080/admin/apply", payload, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
+
+      alert(`Phỏng vấn đã được gửi thành công cho ứng viên.`);
+
+      closeSendReviewDialog();
+      fetchApplications();
+      fetchAcceptedInterview();
+      fetchAcceptedApplications();
     } catch (error) {
+      alert("Có lỗi xảy ra khi gửi thông tin phỏng vấn. Vui lòng thử lại.");
     }
   };
 
-  const handleStatusUpdateInterview = async (id, status) => {
+  const handleStatusDenyReview = async (id, status) => {
     try {
       await axios.put(
         "http://localhost:8080/admin/apply",
@@ -62,15 +136,13 @@ function HoSoUngTuyen() {
 
       alert(
         `Trạng thái cập nhật thành công: ${
-          status === "interview" ? "Chấp nhận" : "Từ chối"
+          status === "accept" ? "Chấp nhận" : "Từ chối"
         } Admin đã gửi thông báo đến ứng viên`
       );
 
       fetchApplications();
-      fetchAcceptedInterview();
       fetchAcceptedApplications();
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const handleStatusUpdatePass = async (id, status) => {
@@ -92,8 +164,7 @@ function HoSoUngTuyen() {
 
       fetchAcceptedInterview();
       fetchAcceptedApplications();
-    } catch (error) {
-    }
+    } catch (error) {}
   };
   return (
     <div className={cx("hosoungtuyen")}>
@@ -128,13 +199,15 @@ function HoSoUngTuyen() {
                     <td className={cx("cottrangthai")}>
                       <button
                         className={cx("acceptButton")}
-                        onClick={() => handleStatusUpdateInterview(app.apply_id, "interview")}
+                        onClick={() => openSendReviewDialog(app.apply_id)}
                       >
                         Phỏng vấn
                       </button>
                       <button
                         className={cx("denyButton")}
-                        onClick={() => handleStatusUpdateInterview(app.apply_id, "deny")}
+                        onClick={() =>
+                          handleStatusDenyReview(app.apply_id, "deny")
+                        }
                       >
                         Từ chối
                       </button>
@@ -153,6 +226,65 @@ function HoSoUngTuyen() {
         </div>
       </div>
 
+      {dialogSendReview && (
+        <div className={cx("guithongtinreview")}>
+          <div className={cx("jobPostForm")}>
+            <h2>Gửi Thông Tin Phỏng Vấn</h2>
+            <form onSubmit={handleStatusUpdateInterview}>
+              <div className={cx("formGroup")}>
+                <label>Địa chỉ</label>
+                <input
+                  type="text"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleInputChange}
+                  placeholder="Nơi phỏng vấn"
+                />
+              </div>
+
+              <div className={cx("formGroup")}>
+                <label>Ngày</label>
+                <input
+                  type="date"
+                  name="datereview"
+                  value={formData.datereview}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className={cx("formGroup")}>
+                <label>Giờ</label>
+                <input
+                  type="time"
+                  name="hour"
+                  value={formData.hour}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className={cx("formGroup")}>
+                <label>Ghi chú</label>
+                <textarea
+                  name="content"
+                  value={formData.content}
+                  onChange={handleInputChange}
+                  placeholder="Nhập ghi chú thêm"
+                ></textarea>
+              </div>
+
+              <button type="submit" className={cx("submitButton")}>
+                Gửi thông tin
+              </button>
+
+              <button
+                type="button"
+                className={cx("cancelButton")}
+                onClick={closeSendReviewDialog}
+              >
+                Hủy
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
       <div className={cx("hosouchapnhan")}>
         <h2 className={cx("tieude")}>Hồ Sơ Đang Phỏng Vấn</h2>
         <div className={cx("banghoso")}>
@@ -186,13 +318,17 @@ function HoSoUngTuyen() {
                     <td className={cx("cottrangthai")}>
                       <button
                         className={cx("acceptButton")}
-                        onClick={() => handleStatusUpdatePass(app.apply_id, "accept")}
+                        onClick={() =>
+                          handleStatusUpdatePass(app.apply_id, "accept")
+                        }
                       >
                         Thông qua
                       </button>
                       <button
                         className={cx("denyButton")}
-                        onClick={() => handleStatusUpdatePass(app.apply_id, "deny")}
+                        onClick={() =>
+                          handleStatusUpdatePass(app.apply_id, "deny")
+                        }
                       >
                         Từ chối
                       </button>

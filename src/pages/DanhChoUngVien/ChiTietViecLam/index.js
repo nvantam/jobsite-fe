@@ -82,11 +82,11 @@ function ChiTietViecLam() {
         }
       )
       .then(() => {
-        alert("Ứng tuyển thành công!");
         setShowDialog(false);
+        alert("Ứng tuyển thành công!");    
       })
       .catch((error) => {
-        setCvList([]);
+        setShowDialog(false);
         alert("Bạn đã ứng tuyển bài đăng này 1 lần rồi!");
       });
   };
