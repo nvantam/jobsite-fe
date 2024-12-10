@@ -77,7 +77,7 @@ function DangNhapTKDoanhNghiep() {
           </button>
         </form>
         <div className={cx("quenmatkhautkdoanhnghiep")}>
-          <Link to="/quenmatkhaudoanhnghiep" className={cx("linkquenmatkhaudoanhnghiep")}>
+          <Link to="/quenmatkhau" className={cx("linkquenmatkhaudoanhnghiep")}>
             Quên mật khẩu?
           </Link>
           <p className={cx("dangkitkdoanhnghiepmoi")}>

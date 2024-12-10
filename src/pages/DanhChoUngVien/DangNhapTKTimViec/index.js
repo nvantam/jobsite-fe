@@ -82,7 +82,7 @@ function DangNhapTKTimViec() {
         </form>
         <div className={cx("quenmatkhautktimviec")}>
           <Link
-            to="/quenmatkhautimviec"
+            to="/quenmatkhau"
             className={cx("linkquenmatkhautimviec")}
           >
             Quên mật khẩu?

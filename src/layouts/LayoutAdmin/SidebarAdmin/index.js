@@ -8,13 +8,13 @@ const cx = classNames.bind(styles);
 
 function Sidebar() {
   const navigate = useNavigate();
-
+  const userNameAdmin = localStorage.getItem("userNameAdmin");
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/account/logout", 
+        "http://localhost:8080/account/logout",
         {},
-        { withCredentials: true } 
+        { withCredentials: true }
       );
 
       if (response.status === 200) {
@@ -32,7 +32,7 @@ function Sidebar() {
 
   return (
     <div className={cx("sidebaradmin")}>
-      <h2 className={cx("titleadmin")}>QUẢN TRỊ VIÊN</h2>
+      <h2 className={cx("titleadmin")}>Tài khoản quản trị {userNameAdmin} </h2>
       <nav>
         <ul className={cx("menuadmin")}>
           <li className={cx("menu-itemadmin")}>
@@ -71,8 +71,8 @@ function Sidebar() {
             <NavLink
               to="#"
               onClick={(e) => {
-                e.preventDefault(); 
-                handleLogout(); 
+                e.preventDefault();
+                handleLogout();
               }}
             >
               Đăng Xuất

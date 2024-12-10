@@ -16,6 +16,7 @@ import AdminLogin from "~/pages/Admin/AdminLogin";
 // import TrangChuUngVien from "~/pages/DanhChoUngVien/TrangChuUngVien";
 import AdminBaiDangChiTiet from "~/pages/Admin/AdminBaiDangChiTiet";
 import AdminQuanLyNhanVienQuanTri from "~/pages/Admin/AdminQuanLyNhanVienQuanTri";
+import QuenMatKhau from "~/pages/DanhChoUngVien/QuenMatKhau";
 const publicRoutes = [
   { path: "/", component: ViecLam },
   { path: "/vieclam", component: ViecLam },
@@ -24,6 +25,8 @@ const publicRoutes = [
   { path: "/thongbao", component: ThongBao },
   { path: "/dangkitktimviec", component: DangKiTKTimViec, layout: null },
   { path: "/dangnhaptktimviec", component: DangNhapTKTimViec, layout: null },
+  { path: "/quenmatkhau", component: QuenMatKhau, layout: null },
+
 ];
 const routersDoanhNghiep = [
   { path: "/trangchudoanhnghiep", component: TrangChuDoanhNghiep },
